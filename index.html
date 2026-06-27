@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avishka Hasith Wijepala</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0b1d33;
+    --navy-2:#122b49;
+    --blue-700:#1e4d7e;
+    --blue-600:#2b6cb0;
+    --blue-500:#3d83c9;
+    --blue-400:#6ba4da;
+    --sky:#a9cbe8;
+    --blue-100:#e8f0f9;
+    --blue-50:#f4f8fc;
+    --paper:#f8fafc;
+    --white:#ffffff;
+    --ink:#102338;
+    --muted:#54677b;
+    --muted-2:#7d8d9e;
+    --line:#e7edf4;
+    --line-2:#d6e0ec;
+    --shadow-sm:0 2px 10px -4px rgba(11,29,51,.12);
+    --shadow:0 18px 50px -22px rgba(11,29,51,.20);
+    --shadow-lg:0 40px 90px -32px rgba(11,29,51,.30);
+    --r:22px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+  body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--ink);background:var(--white);line-height:1.65;overflow-x:hidden}
+  ::selection{background:var(--blue-500);color:#fff}
+  .serif{font-family:'Fraunces',serif}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 30px}
+  a{text-decoration:none}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:.4s cubic-bezier(.2,.7,.2,1)}
+  nav.scrolled{background:rgba(255,255,255,.78);backdrop-filter:blur(18px) saturate(160%);box-shadow:0 1px 0 var(--line),0 10px 30px -22px rgba(11,29,51,.5);padding:13px 0}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between}
+  .logo{font-weight:800;font-size:1.12rem;letter-spacing:-.02em;color:var(--navy);display:flex;align-items:center;gap:10px}
+  .logo .mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--blue-600),var(--blue-400));display:grid;place-items:center;color:#fff;font-family:'Fraunces',serif;font-size:.95rem;font-weight:600;box-shadow:0 8px 20px -8px rgba(43,108,176,.7)}
+  .nav-links{display:flex;gap:4px;align-items:center}
+  .nav-links a{color:var(--blue-700);font-weight:500;font-size:.92rem;padding:9px 16px;border-radius:30px;transition:.25s}
+  .nav-links a:hover{background:var(--blue-50);color:var(--blue-600)}
+  .nav-cta{background:var(--navy)!important;color:#fff!important;box-shadow:0 10px 24px -12px rgba(11,29,51,.8)}
+  .nav-cta:hover{background:var(--navy-2)!important}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px}
+  .burger span{width:24px;height:2px;background:var(--navy);border-radius:2px;transition:.3s}
+
+  /* HERO */
+  header{position:relative;padding:185px 0 120px;overflow:hidden;background:linear-gradient(180deg,#fdfeff 0%,var(--blue-50) 100%)}
+  .aurora{position:absolute;border-radius:50%;filter:blur(80px);z-index:0}
+  .aurora.a1{width:520px;height:520px;background:radial-gradient(circle,#cfe4f8,transparent 70%);top:-140px;right:-100px;opacity:.85;animation:drift 18s ease-in-out infinite}
+  .aurora.a2{width:380px;height:380px;background:radial-gradient(circle,#dceafc,transparent 70%);bottom:-120px;left:-80px;opacity:.7;animation:drift 22s ease-in-out infinite reverse}
+  @keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(26px,-30px)}}
+  .grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:54px 54px;mask-image:radial-gradient(circle at 70% 25%,#000,transparent 72%);opacity:.5;z-index:0}
+  .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.12fr .88fr;gap:56px;align-items:center}
+  .hero-sub{font-size:1.06rem;font-weight:600;color:var(--blue-600);margin-top:14px}
+  .hero-photo{position:relative;width:min(390px,82%);aspect-ratio:1;margin:0 auto;border-radius:50%;display:grid;place-items:center;overflow:hidden;background:linear-gradient(135deg,var(--navy),var(--blue-600));color:#fff;font-family:'Fraunces',serif;font-size:5rem;font-weight:600;border:6px solid var(--blue-500);box-shadow:0 28px 70px -26px rgba(11,29,51,.45),0 0 0 12px rgba(61,131,201,.12)}
+  .hero-photo .hp-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
+  @media(max-width:880px){.hero-photo{order:-1;width:min(300px,72%);margin-bottom:6px}.hero-sub{font-size:1rem}}
+  h1.name{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2.8rem,6.2vw,4.8rem);line-height:1.0;letter-spacing:-.025em;color:var(--navy)}
+  h1.name .grad{background:linear-gradient(110deg,var(--blue-600),var(--blue-400));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{font-size:1.12rem;color:var(--muted);max-width:580px;margin-top:26px}
+  .hero-btns{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:15px 28px;border-radius:40px;font-weight:600;font-size:.96rem;cursor:pointer;transition:.3s cubic-bezier(.2,.7,.2,1);border:none}
+  .btn-primary{background:var(--navy);color:#fff;box-shadow:0 16px 36px -14px rgba(11,29,51,.75)}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 24px 48px -16px rgba(11,29,51,.85)}
+  .btn-ghost{background:#fff;color:var(--navy);border:1px solid var(--line-2)}
+  .btn-ghost:hover{border-color:var(--blue-400);transform:translateY(-3px);box-shadow:var(--shadow)}
+
+  .hero-card{position:relative;z-index:2;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:26px;padding:34px 32px;box-shadow:var(--shadow-lg)}
+  .hero-card::before{content:"";position:absolute;inset:0;border-radius:26px;padding:1px;background:linear-gradient(140deg,rgba(107,164,218,.5),transparent 40%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+  .avatar{position:relative;overflow:hidden;width:148px;height:148px;border-radius:50%;display:grid;place-items:center;margin:0 auto 20px;background:linear-gradient(135deg,var(--navy),var(--blue-600));color:#fff;font-family:'Fraunces',serif;font-size:2.6rem;font-weight:600;border:4px solid #fff;box-shadow:0 0 0 4px var(--blue-500),0 20px 44px -18px rgba(11,29,51,.55)}
+  .avatar .av-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
+  .hero-card h3{text-align:center;font-size:1.18rem;color:var(--navy)}
+  .hero-card .sub{text-align:center;color:var(--muted-2);font-size:.88rem;margin-bottom:24px}
+  .mini-stats{margin-bottom:24px}
+  .mini{background:var(--blue-50);border:1px solid var(--line);border-radius:16px;padding:20px 8px;text-align:center}
+  .mini b{display:block;font-family:'Fraunces',serif;font-size:2rem;color:var(--blue-700);line-height:1}
+  .mini span{font-size:.78rem;color:var(--muted-2);font-weight:600;margin-top:5px;display:block}
+  .contact-row{display:flex;flex-direction:column;gap:6px}
+  .contact-row a{display:flex;align-items:center;gap:12px;color:var(--navy);font-size:.86rem;font-weight:500;padding:10px 12px;border-radius:13px;transition:.22s}
+  .contact-row a:hover{background:var(--blue-50)}
+  .contact-row svg{width:17px;height:17px;color:var(--blue-500);flex-shrink:0}
+
+  /* SECTION */
+  section{padding:100px 0;position:relative}
+  .sec-head{margin-bottom:54px;max-width:700px}
+  .kicker{display:inline-flex;align-items:center;gap:10px;font-size:.76rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue-500);margin-bottom:16px}
+  .kicker::before{content:"";width:28px;height:2px;background:var(--blue-400);border-radius:2px}
+  h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2rem,3.8vw,2.9rem);letter-spacing:-.02em;color:var(--navy);line-height:1.08}
+  .sec-head p{color:var(--muted);margin-top:16px;font-size:1.04rem}
+  .alt{background:linear-gradient(180deg,var(--paper),var(--blue-50))}
+
+  /* EDUCATION */
+  .edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px}
+  .edu-card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:32px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .edu-card::before{content:"";position:absolute;top:0;left:0;width:5px;height:100%;background:linear-gradient(var(--blue-600),var(--blue-400))}
+  .edu-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+  .edu-icon{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,var(--navy),var(--blue-600));color:#fff;box-shadow:0 14px 28px -12px rgba(11,29,51,.6)}
+  .edu-icon svg{width:27px;height:27px}
+  .edu-card .yr{display:inline-block;background:var(--blue-100);color:var(--blue-700);font-size:.8rem;font-weight:700;padding:6px 14px;border-radius:20px}
+  .edu-card h3{font-size:1.2rem;color:var(--navy);line-height:1.3}
+  .edu-card .inst{color:var(--blue-600);font-weight:600;margin-top:8px;font-size:.98rem}
+  .edu-card .note{color:var(--muted);font-size:.92rem;margin-top:16px;padding-top:16px;border-top:1px dashed var(--line-2)}
+
+  /* RESEARCH */
+  .filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:38px}
+  .filter{background:#fff;border:1px solid var(--line-2);padding:10px 20px;border-radius:30px;font-size:.88rem;font-weight:600;color:var(--blue-700);cursor:pointer;transition:.24s}
+  .filter:hover{border-color:var(--blue-400)}
+  .filter.active{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:0 12px 26px -12px rgba(11,29,51,.7)}
+  .research-list{display:flex;flex-direction:column;gap:18px}
+  .rcard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px 30px;box-shadow:var(--shadow-sm);transition:.35s cubic-bezier(.2,.7,.2,1);display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start}
+  .rcard:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--line-2)}
+  .ricon{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(140deg,var(--blue-50),#fff);border:1px solid var(--line);color:var(--blue-600);flex-shrink:0}
+  .ricon svg{width:24px;height:24px}
+  .rtags{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:11px}
+  .rtag{font-size:.71rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:4px 11px;border-radius:20px}
+  .t-journal{background:#e3f0fc;color:var(--blue-700)}
+  .t-conf{background:#e7f5ee;color:#177a4a}
+  .t-abs{background:#fdeee0;color:#b86a18}
+  .t-ongoing{background:#efe7fb;color:#6d3bb0}
+  .status{font-size:.71rem;font-weight:700;padding:3px 11px;border-radius:20px;border:1px solid currentColor}
+  .s-review{color:#c47a16}.s-pub{color:#177a4a}.s-present{color:var(--blue-600)}
+  .rcard h3{font-size:1.1rem;color:var(--navy);line-height:1.4;margin-bottom:9px}
+  .authors{font-size:.88rem;color:var(--muted)}
+  .authors .me{color:var(--blue-600);font-weight:700}
+  .venue{font-size:.85rem;color:#37506a;margin-top:11px;font-style:italic;display:flex;align-items:center;gap:8px}
+  .venue svg{width:14px;height:14px;color:var(--blue-400);flex-shrink:0}
+
+  /* COURSEWORK */
+  .course-grid{display:flex;flex-wrap:wrap;gap:12px}
+  .course{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 19px;font-size:.9rem;font-weight:600;color:var(--blue-700);display:flex;align-items:center;gap:9px;transition:.28s;box-shadow:var(--shadow-sm)}
+  .course:hover{background:var(--navy);color:#fff;border-color:var(--navy);transform:translateY(-3px);box-shadow:var(--shadow)}
+  .course .tick{color:var(--blue-400)}
+  .course:hover .tick{color:var(--sky)}
+
+  /* PROJECTS */
+  .proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .pcard{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:32px;box-shadow:var(--shadow-sm);transition:.35s cubic-bezier(.2,.7,.2,1);position:relative;overflow:hidden}
+  .pcard::after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,var(--blue-100),transparent 70%);top:-80px;right:-60px;transition:.5s}
+  .pcard:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--line-2)}
+  .pcard:hover::after{transform:scale(1.6)}
+  .pcard .pico{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,var(--navy),var(--blue-600));color:#fff;margin-bottom:20px;position:relative;z-index:1;box-shadow:0 14px 28px -12px rgba(11,29,51,.6)}
+  .pcard .pico svg{width:26px;height:26px}
+  .pcard h3{font-size:1.18rem;color:var(--navy);margin-bottom:11px;position:relative;z-index:1}
+  .pcard p{color:var(--muted);font-size:.94rem;position:relative;z-index:1}
+  .ptools{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;position:relative;z-index:1}
+  .ptool{font-size:.75rem;font-weight:700;background:var(--blue-50);color:var(--blue-700);padding:6px 13px;border-radius:20px;border:1px solid var(--line)}
+
+  /* TWO COL */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  .timeline{position:relative;padding-left:32px}
+  .timeline::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--blue-400),var(--line))}
+  .tl-item{position:relative;padding-bottom:28px}
+  .tl-item:last-child{padding-bottom:0}
+  .tl-item::before{content:"";position:absolute;left:-32px;top:5px;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--blue-500);box-shadow:0 0 0 4px var(--blue-100)}
+  .tl-item .role-t{font-weight:700;color:var(--navy);font-size:1.04rem}
+  .tl-item .org-t{color:var(--blue-600);font-weight:600;font-size:.92rem}
+  .tl-item .when{color:var(--muted-2);font-size:.82rem;margin-top:3px}
+  .mem-list{display:flex;flex-direction:column;gap:14px}
+  .mem{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px;display:flex;align-items:center;gap:16px;transition:.28s;box-shadow:var(--shadow-sm)}
+  .mem:hover{transform:translateX(6px);box-shadow:var(--shadow);border-color:var(--line-2)}
+  .mem .mabbr{width:50px;height:50px;border-radius:13px;background:linear-gradient(140deg,var(--blue-50),#fff);border:1px solid var(--line);color:var(--blue-700);display:grid;place-items:center;font-weight:800;font-size:.86rem;flex-shrink:0}
+  .mem .mname{font-weight:700;color:var(--navy);font-size:.95rem}
+  .mem .mrole{color:var(--muted-2);font-size:.82rem}
+
+  /* HONORS */
+  .honor-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .honor{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px;box-shadow:var(--shadow-sm);transition:.35s;display:flex;gap:18px;align-items:flex-start}
+  .honor:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--line-2)}
+  .honor .trophy{width:52px;height:52px;border-radius:15px;background:linear-gradient(140deg,#fff7e6,#fff);border:1px solid #f3e2c2;color:#d99115;display:grid;place-items:center;flex-shrink:0;box-shadow:0 10px 22px -10px rgba(217,145,21,.4)}
+  .honor .trophy svg{width:26px;height:26px}
+  .honor h3{font-size:1.05rem;color:var(--navy);line-height:1.32;margin-bottom:7px}
+  .honor p{color:var(--muted);font-size:.86rem}
+  .honor .fin{display:inline-block;font-size:.72rem;font-weight:700;color:#b87a12;background:#fff7e6;padding:4px 11px;border-radius:20px;margin-top:11px;border:1px solid #f3e2c2}
+
+  /* TOOLS */
+  .tools-row{display:flex;flex-wrap:wrap;gap:16px}
+  .tool{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 30px;text-align:center;min-width:130px;flex:1;transition:.35s;box-shadow:var(--shadow-sm)}
+  .tool:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--blue-400)}
+  .tool .tname{font-family:'Fraunces',serif;font-size:1.35rem;font-weight:600;color:var(--blue-700)}
+  .tool .tlabel{font-size:.78rem;color:var(--muted-2);margin-top:4px;font-weight:500}
+
+  /* BLOGS */
+  .blog-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  .blog{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm);transition:.35s;display:flex;flex-direction:column}
+  .blog:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--line-2)}
+  .blog-top{height:148px;display:grid;place-items:center;position:relative;overflow:hidden}
+  .blog-top.g1{background:linear-gradient(135deg,var(--navy),var(--blue-600))}
+  .blog-top.g2{background:linear-gradient(135deg,var(--blue-700),var(--blue-400))}
+  .blog-top::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 20% 30%,rgba(255,255,255,.18),transparent 40%),radial-gradient(circle at 80% 70%,rgba(255,255,255,.12),transparent 40%)}
+  .blog-top .tlabel{position:relative;z-index:2;font-family:'Fraunces',serif;color:#fff;font-size:1.8rem;font-weight:600;letter-spacing:.05em;opacity:.95}
+  .blog-top .blog-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:3;transition:.5s}
+  .blog:hover .blog-top .blog-img{transform:scale(1.05)}
+  .blog-body{padding:26px;flex:1;display:flex;flex-direction:column}
+  .blog-body h3{font-size:1.08rem;color:var(--navy);line-height:1.38;margin-bottom:11px}
+  .blog-body p{color:var(--muted);font-size:.9rem;flex:1}
+  .blog-link{display:inline-flex;align-items:center;gap:8px;color:var(--blue-600);font-weight:700;font-size:.9rem;margin-top:18px;transition:.22s}
+  .blog-link:hover{gap:13px;color:var(--blue-700)}
+  .blog-link svg{width:16px;height:16px}
+
+  /* CONTACT */
+  .contact{background:linear-gradient(150deg,var(--navy),var(--blue-700));border-radius:36px;padding:70px 50px;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+  .contact .grid-bg{mask-image:radial-gradient(circle at 50% 50%,#000,transparent 70%);opacity:.1}
+  .contact .glow{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(107,164,218,.4),transparent 70%);top:-150px;left:50%;transform:translateX(-50%);filter:blur(40px)}
+  .contact h2{color:#fff;position:relative;z-index:2}
+  .contact p{color:var(--sky);margin:18px auto 34px;max-width:520px;position:relative;z-index:2}
+  .contact-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2}
+  .btn-white{background:#fff;color:var(--navy)}
+  .btn-white:hover{transform:translateY(-3px);box-shadow:0 20px 40px -14px rgba(0,0,0,.45)}
+  .btn-outline{background:rgba(255,255,255,.07);color:#fff;border:1px solid rgba(255,255,255,.28)}
+  .btn-outline:hover{background:rgba(255,255,255,.15);transform:translateY(-3px)}
+  .contact-email{position:relative;z-index:2;display:inline-flex;align-items:center;gap:9px;margin-top:26px;color:#fff;font-weight:600;font-size:1.02rem;opacity:.92;transition:.2s}
+  .contact-email:hover{opacity:1;color:var(--sky)}
+  .contact-email svg{width:18px;height:18px}
+  .footer-email{display:inline-block;margin-top:12px;color:var(--sky);font-weight:600;font-size:.92rem;transition:.2s}
+  .footer-email:hover{color:#fff}
+
+  /* FOOTER */
+  footer{background:var(--navy);padding:56px 30px;text-align:center}
+  .footer-name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.55rem;color:#fff;letter-spacing:-.02em}
+  .footer-tag{color:#9fb4cc;font-size:.96rem;margin-top:8px}
+  .footer-socials{display:flex;gap:14px;justify-content:center;margin:24px 0 20px}
+  .footer-socials a{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#aebfd4;transition:.25s}
+  .footer-socials a:hover{background:var(--blue-600);color:#fff;border-color:var(--blue-600);transform:translateY(-3px)}
+  .footer-socials svg{width:19px;height:19px}
+  .footer-copy{color:#6c8099;font-size:.84rem}
+
+  .reveal{opacity:0;transform:translateY(36px);transition:.8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:880px){
+    .hero-grid,.two-col,.proj-grid,.honor-grid,.blog-grid{grid-template-columns:1fr}
+    header{padding:150px 0 90px}
+    .nav-links{position:fixed;top:0;right:0;bottom:0;width:78%;max-width:310px;background:#fff;flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:96px 24px;gap:6px;transform:translateX(105%);transition:.4s cubic-bezier(.2,.7,.2,1);box-shadow:-26px 0 60px -24px rgba(11,29,51,.4)}
+    .nav-links.open{transform:none}
+    .nav-links a{width:100%}
+    .burger{display:flex;z-index:101}
+    .burger.x span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .burger.x span:nth-child(2){opacity:0}
+    .burger.x span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .rcard{grid-template-columns:1fr}
+    .contact{padding:50px 26px}
+    section{padding:74px 0}
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="logo"><span class="mark">AW</span>Avishka Wijepala</a>
+    <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navlinks">
+      <a href="#education">Education</a>
+      <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#blogs">Blogs</a>
+      <a href="#contact" class="nav-cta">Get in touch</a>
+    </div>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="aurora a1"></div>
+  <div class="aurora a2"></div>
+  <div class="grid-bg"></div>
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <h1 class="name">Avishka Hasith<br><span class="grad">Wijepala</span></h1>
+      <p class="hero-sub">Research Assistant · University of Peradeniya</p>
+      <p class="lead">A Financial Mathematics and Industrial Statistics undergraduate with a strong passion for research and innovation. I enjoy exploring complex problems, developing data-driven solutions, and contributing to impactful research that addresses real-world challenges.</p>
+      <div class="hero-btns">
+        <a href="#research" class="btn btn-primary">View Research
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-ghost">Contact Me</a>
+      </div>
+    </div>
+    <div class="hero-photo reveal"><span>AW</span><img class="hp-img" src="avishka.JPG" alt="Avishka Wijepala" referrerpolicy="no-referrer" onerror="this.style.display='none'"></div>
+  </div>
+</header>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Academic Background</span>
+      <h2>Education</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div class="edu-top">
+          <div class="edu-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/><path d="M22 10v6"/></svg></div>
+          <span class="yr">2022 — 2026</span>
+        </div>
+        <h3>BSc (Hons) in Financial Mathematics &amp; Industrial Statistics</h3>
+        <div class="inst">University of Ruhuna, Sri Lanka</div>
+        <div class="note">Undergraduate degree focused on quantitative finance, statistics, econometrics, and machine learning.</div>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-top">
+          <div class="edu-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3h6M10 3v6.5L5.2 17.3A2 2 0 0 0 7 20h10a2 2 0 0 0 1.8-2.7L14 9.5V3"/><path d="M7.5 14h9"/></svg></div>
+          <span class="yr">2026 — Present</span>
+        </div>
+        <h3>Research Assistant (Intern)</h3>
+        <div class="inst">Multidisciplinary AI Research Centre, University of Peradeniya</div>
+        <div class="note">Contributing to data-driven research and quantitative modeling across interdisciplinary projects.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research" class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Research</span>
+      <h2>Publications &amp; Ongoing Work</h2>
+      <p>Journals, conference papers, abstracts and active research across quantitative finance, time series, and remote-sensing analytics.</p>
+    </div>
+
+    <div class="filters reveal">
+      <button class="filter active" data-f="all">All</button>
+      <button class="filter" data-f="journal">Journals</button>
+      <button class="filter" data-f="conf">Conferences</button>
+      <button class="filter" data-f="abs">Abstracts</button>
+      <button class="filter" data-f="ongoing">Ongoing</button>
+    </div>
+
+    <div class="research-list">
+      <div class="rcard reveal" data-c="journal">
+        <div class="ricon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg></div>
+        <div>
+          <div class="rtags"><span class="rtag t-journal">Journal</span><span class="status s-review">Under Review</span></div>
+          <h3>Portfolio Optimization Using the Single Index Model and Historical VaR &amp; TVaR: An Empirical Study on the S&amp;P SL20 Index</h3>
+          <div class="authors"><span class="me">W.A.A.H. Wijepala</span>, M.M.M.N. Perera, A.W.S.P. Karunarathne</div>
+          <div class="venue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg>Journal of Multidisciplinary and Translational Studies (JMTR)</div>
+        </div>
+      </div>
+
+      <div class="rcard reveal" data-c="conf">
+        <div class="ricon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m7 16 4-6 4 3 5-7"/></svg></div>
+        <div>
+          <div class="rtags"><span class="rtag t-conf">Conference</span><span class="status s-pub">Published</span></div>
+          <h3>Modelling the Major Currency Pairs Using Time Series</h3>
+          <div class="authors">A.W.S.P. Karunarathne, A.K.S.S. Wimalasena, I.W.P. De Silva, <span class="me">W.A.A.H. Wijepala</span></div>
+          <div class="venue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg>RUHUNA International Undergraduate Symposium 2025 (RIUSS)</div>
+        </div>
+      </div>
+
+      <div class="rcard reveal" data-c="conf">
+        <div class="ricon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></svg></div>
+        <div>
+          <div class="rtags"><span class="rtag t-conf">Conference</span><span class="status s-review">Under Review</span></div>
+          <h3>Remote Sensing-Based Hybrid Statistical–Machine Learning Ensemble Modeling of Yellowfin Tuna Catch in the Western Equatorial Indian Ocean</h3>
+          <div class="authors"><span class="me">Avishka Wijepala</span>, Sharukshan Niranjan, Lisitha Abeysekara</div>
+          <div class="venue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg>IEEE India Geoscience &amp; Remote Sensing Symposium 2026 (InGARSS)</div>
+        </div>
+      </div>
+
+      <div class="rcard reveal" data-c="conf">
+        <div class="ricon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><rect x="7" y="9" width="3" height="9"/><rect x="14" y="5" width="3" height="13"/></svg></div>
+        <div>
+          <div class="rtags"><span class="rtag t-conf">Conference</span><span class="status s-review">Under Review</span></div>
+          <h3>Comparative Return Modeling in SL20 Portfolio Optimization</h3>
+          <div class="authors"><span class="me">W.A.A.H. Wijepala</span>, M.H.M.N. Perera, A.W.S.P. Karunaratna</div>
+          <div class="venue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg>15th International Conference on Management &amp; Economics 2026 (ICME) — Undergraduate Research Forum</div>
+        </div>
+      </div>
+
+      <div class="rcard reveal" data-c="conf">
+        <div class="ricon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"/><path d="M3 21v-2a6 6 0 0 1 6-6h6a6 6 0 0 1 6 6v2"/></svg></div>
+        <div>
+          <div class="rtags"><span class="rtag t-conf">Presentation</span><span class="status s-present">Presented</span></div>
+          <h3>Multiple Linear Regression Approach to Modeling Health Insurance Premiums in Sri Lanka</h3>
+          <div class="authors"><span class="me">W.A.A.H. Wijepala</span>, T.A.S.D. Almeda, K.K.S. Kariyawasam, M.F. Abdulla</div>
+          <div class="venue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg>Mini Symposium, Department of Mathematics, University of Ruhuna</div>
+        </div>
+      </div>
+
+      <div class="rcard reveal" data-c="abs">
+        <div class="ricon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
+        <div>
+          <div class="rtags"><span class="rtag t-abs">Abstract</span><span class="status s-review">Under Review</span></div>
+          <h3>Empirical Foundations for a Spatially Cointegrated Retail Fish Price Index in Sri Lanka</h3>
+          <div class="authors"><span class="me">W.A.A.H. Wijepala</span>, E.M.E.K. Ekanayake, C. Withanage, A.M.A.S.M. Bandara, P.H. Abeysundera</div>
+          <div class="venue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg>Peradeniya University International Research Symposium &amp; Exposition 2026 (iPURSE)</div>
+        </div>
+      </div>
+
+      <div class="rcard reveal" data-c="ongoing">
+        <div class="ricon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div>
+        <div>
+          <div class="rtags"><span class="rtag t-ongoing">Ongoing</span><span class="status s-present">In Progress</span></div>
+          <h3>Haar-Wavelet Based Numerical Framework for Pricing Geometric Asian Options</h3>
+          <div class="authors">Developing a numerical framework leveraging Haar wavelets for efficient option pricing.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSEWORK -->
+<section id="coursework">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Academic Foundation</span>
+      <h2>Key Coursework</h2>
+    </div>
+    <div class="course-grid reveal" id="courseGrid"></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Projects</span>
+      <h2>Applied Modeling &amp; Decision Systems</h2>
+    </div>
+    <div class="proj-grid">
+      <div class="pcard reveal">
+        <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></svg></div>
+        <h3>Neural ODEs in Physiology-Based PKPD Models</h3>
+        <p>A study of physiological drug dynamics from synthetic data using Neural Ordinary Differential Equations, benchmarked against classical two-compartment PK ODE models.</p>
+        <div class="ptools"><span class="ptool">Neural ODEs</span><span class="ptool">PK/PD</span><span class="ptool">Modeling</span></div>
+      </div>
+      <div class="pcard reveal">
+        <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="m7 8 3 3-3 3M13 14h4"/></svg></div>
+        <h3>Goal Programming–Based Laptop Selection System</h3>
+        <p>A Python-based decision-support tool that applies goal programming to recommend the best laptop according to user-defined goals and constraints.</p>
+        <div class="ptools"><span class="ptool">Python</span><span class="ptool">Excel</span><span class="ptool">MySQL</span><span class="ptool">Goal Programming</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVOLVEMENT -->
+<section id="involvement">
+  <div class="wrap">
+    <div class="two-col">
+      <div>
+        <div class="sec-head reveal" style="margin-bottom:36px">
+          <span class="kicker">Leadership</span>
+          <h2>Roles &amp; Impact</h2>
+        </div>
+        <div class="timeline reveal">
+          <div class="tl-item"><div class="role-t">President</div><div class="org-t">Actuarial &amp; Data Science Society, University of Ruhuna</div><div class="when">2025 — Present</div></div>
+          <div class="tl-item"><div class="role-t">Team Lead</div><div class="org-t">AIESEC Sri Lanka — University of Ruhuna</div><div class="when">2023 — 2024</div></div>
+          <div class="tl-item"><div class="role-t">Manager in Operations</div><div class="org-t">Zero Plastic National Movement</div><div class="when">2023</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="sec-head reveal" style="margin-bottom:36px">
+          <span class="kicker">Memberships</span>
+          <h2>Professional Bodies</h2>
+        </div>
+        <div class="mem-list reveal">
+          <div class="mem"><div class="mabbr">IASSL</div><div><div class="mname">Institute of Applied Statistics Sri Lanka</div><div class="mrole">Student Member · 2025 — Present</div></div></div>
+          <div class="mem"><div class="mabbr">SOA</div><div><div class="mname">Society of Actuaries</div><div class="mrole">Affiliate Member · 2024 — Present</div></div></div>
+          <div class="mem"><div class="mabbr">BCS</div><div><div class="mname">British Computer Society</div><div class="mrole">Student Member · 2020 — 2024</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HONORS -->
+<section id="honors" class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Recognition</span>
+      <h2>Honors &amp; Achievements</h2>
+    </div>
+    <div class="honor-grid">
+      <div class="honor reveal">
+        <div class="trophy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
+        <div><h3>"Varsity Battles" Capital Market Quiz Competition</h3><p>Organized by the Colombo Stock Exchange &amp; the Securities and Exchange Commission of Sri Lanka.</p><span class="fin">★ Finalist</span></div>
+      </div>
+      <div class="honor reveal">
+        <div class="trophy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
+        <div><h3>"Insurance Champ 2025" Inter-University Insurance Quiz</h3><p>Organized by the Insurance Regulatory Commission of Sri Lanka.</p><span class="fin">★ Finalist</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Toolkit</span>
+      <h2>Tools &amp; Software</h2>
+    </div>
+    <div class="tools-row reveal">
+      <div class="tool"><div class="tname">R</div><div class="tlabel">Statistical computing</div></div>
+      <div class="tool"><div class="tname">Python</div><div class="tlabel">Data &amp; ML</div></div>
+      <div class="tool"><div class="tname">MATLAB</div><div class="tlabel">Numerical methods</div></div>
+      <div class="tool"><div class="tname">LaTeX</div><div class="tlabel">Typesetting</div></div>
+      <div class="tool"><div class="tname">MINITAB</div><div class="tlabel">Quality &amp; stats</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOGS -->
+<section id="blogs" class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Writing</span>
+      <h2>Blogs</h2>
+      <p>Breaking down quantitative risk concepts in accessible language.</p>
+    </div>
+    <div class="blog-grid">
+      <div class="blog reveal">
+        <div class="blog-top g1"><span class="tlabel">TVaR</span><img class="blog-img" src="tvar.webp" alt="Tail Value at Risk" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'"></div>
+        <div class="blog-body">
+          <h3>The Risk Measure That Sees What VaR Cannot — A Quick Review of Tail Value at Risk</h3>
+          <p>VaR tells you the threshold of pain but hides how much pain lies beyond it. This blind spot can lead to disasters — which is exactly why Tail Value at Risk was introduced.</p>
+          <a class="blog-link" href="https://medium.com/@aviwije2001/the-risk-measure-that-sees-what-var-cannot-a-quick-review-of-tail-value-at-risk-b40d917f202a" target="_blank" rel="noopener">Read on Medium<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+        </div>
+      </div>
+      <div class="blog reveal">
+        <div class="blog-top g2"><span class="tlabel">VaR</span><img class="blog-img" src="var.webp" alt="Estimating VaR" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'"></div>
+        <div class="blog-body">
+          <h3>Estimating VaR — Which Method Fits Your Portfolio Best?</h3>
+          <p>Value at Risk estimates the maximum potential loss of an asset or portfolio over a period at a given confidence level. But which estimation method suits your portfolio best?</p>
+          <a class="blog-link" href="https://medium.com/@aviwije2001/estimating-var-which-method-fits-your-portfolio-best-f7503a8de69c" target="_blank" rel="noopener">Read on Medium<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact reveal">
+      <div class="glow"></div>
+      <div class="grid-bg"></div>
+      <h2>Let's Build Something With Data</h2>
+      <p>Open to research collaborations, quantitative finance projects, and opportunities where statistics meets the real world. Reach out anytime.</p>
+      <div class="contact-btns">
+        <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=aviwije2001@gmail.com" target="_blank" rel="noopener" class="btn btn-white">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          Email Me
+        </a>
+        <a href="https://medium.com/@aviwije2001" target="_blank" rel="noopener" class="btn btn-outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
+          Read My Blog
+        </a>
+      </div>
+      <a class="contact-email" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=aviwije2001@gmail.com" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        aviwije2001@gmail.com
+      </a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="footer-name">Avishka Hasith Wijepala</div>
+  <div class="footer-tag">Research Enthusiast</div>
+  <a class="footer-email" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=aviwije2001@gmail.com" target="_blank" rel="noopener">aviwije2001@gmail.com</a>
+  <div class="footer-copy" style="margin-top:20px">© 2026 Avishka Hasith Wijepala. All rights reserved.</div>
+</footer>
+
+<script>
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40));
+  const burger=document.getElementById('burger'),links=document.getElementById('navlinks');
+  burger.addEventListener('click',()=>{burger.classList.toggle('x');links.classList.toggle('open')});
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{burger.classList.remove('x');links.classList.remove('open')}));
+
+  const courses=["Time Series Analysis","Operational Research","Stochastic Processes","Numerical Analysis","Survival Analysis","Financial Mathematics","Multivariate Data Analysis","Programming (R & Python)","Linear Algebra","Regression Analysis","Non-Parametric Statistics","Statistical Quality Control","Credibility Theory","Bayesian Inference","Categorical Data Analysis","Sampling & Survey Design"];
+  const cg=document.getElementById('courseGrid');
+  courses.forEach(c=>{const d=document.createElement('div');d.className='course';d.innerHTML='<svg class="tick" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>'+c;cg.appendChild(d)});
+
+  const filters=document.querySelectorAll('.filter'),rcards=document.querySelectorAll('.rcard');
+  filters.forEach(f=>f.addEventListener('click',()=>{
+    filters.forEach(x=>x.classList.remove('active'));f.classList.add('active');
+    const v=f.dataset.f;
+    rcards.forEach(c=>{c.style.display=(v==='all'||c.dataset.c===v)?'grid':'none'});
+  }));
+
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3)*0.08+'s';io.observe(el)});
+</script>
+</body>
+</html>
